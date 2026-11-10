@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT V.O.L.T. | Cartrack Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-viewport">
+        <!-- Header with Clickable Navigation to Screen 1 (Home) -->
+        <header>
+            <div class="header-container" id="header-home-btn" title="Return to Screen 1 (Dashboard)">
+                <div class="header-titles">
+                    <h1>PROJECT V.O.L.T.</h1>
+                    <!-- Matching Orange Subtitle Text from Reference Image -->
+                    <div class="subtitle">Vectorized Operational Liquidity Engine</div>
+                </div>
+                
+                <!-- Rebranded Orange Tile Logo -->
+                <div class="header-logo-placeholder">
+                    <svg class="volt-logo-svg" viewBox="0 0 220 70" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="orangeTileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFB042" />
+                                <stop offset="100%" stop-color="#FF7A00" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" width="60" height="60" rx="14" fill="url(#orangeTileGrad)" />
+                        <circle cx="35" cy="18" r="4" fill="#000000" />
+                        <path d="M 18 45 A 20 20 0 0 1 52 45" fill="none" stroke="#000000" stroke-width="5.5" stroke-linecap="round" />
+                        <path d="M 35 25 L 24 40 L 33 40 L 30 51 L 46 34 L 37 34 Z" fill="#000000" />
+                        <text x="80" y="38" fill="#FFFFFF" font-family="'Courier New', Courier, monospace" font-size="22" font-weight="bold" letter-spacing="2">VOLT</text>
+                        <text x="80" y="52" fill="#FF7A00" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="8" font-weight="bold" letter-spacing="1">FINANCIAL FREEDOM</text>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- SCREEN 1 OF 6: QUALIFICATION DASHBOARD -->
+        <section id="screen-1" class="screen active">
+            <div class="screen-header">SCREEN 1 OF 6: QUALIFICATION DASHBOARD</div>
+            
+            <div class="data-card">
+                <div class="data-row">
+                    <span>User:</span>
+                    <strong id="user-name">Nkululeko Freedom Ntanzi</strong>
+                </div>
+                <div class="data-row">
+                    <span>Employee ID:</span>
+                    <span id="user-emp-id" class="badge">CT-8891</span>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-row">
+                    <span>Probation Status:</span>
+                    <span class="badge" id="val-probation">PASSED</span>
+                </div>
+                <div class="data-row">
+                    <span>Disciplinary Record:</span>
+                    <span class="badge" id="val-warnings">CLEAN</span>
+                </div>
+                <div class="data-row">
+                    <span>Active Loan Limit:</span>
+                    <span class="badge" id="val-loan-limit">0 / 1 LOANS</span>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-row">
+                    <span>Guaranteed Basic Pay:</span>
+                    <strong id="val-basic-salary">R 15,000.00</strong>
+                </div>
+                <div class="data-row total">
+                    <span>Maximum Cap (30%):</span>
+                    <strong id="val-max-cap">R 4,500.00</strong>
+                </div>
+            </div>
+
+            <button class="btn" id="btn-to-screen-2">PROCEED TO AFFORDABILITY CALCULATOR &rarr;</button>
+        </section>
+
+        <!-- SCREEN 2 OF 6: AFFORDABILITY CALCULATOR -->
+        <section id="screen-2" class="screen">
+            <div class="screen-header">SCREEN 2 OF 6: AFFORDABILITY CALCULATOR</div>
+
+            <div class="form-group">
+                <label for="advance-slider">Requested Principal Amount</label>
+                <div class="highlight-amount" id="display-requested-amount">R 2,000.00</div>
+                <input type="range" id="advance-slider" min="500" max="4500" step="100" value="2000">
+                <div class="data-row" style="font-size: 0.75rem; font-family: var(--font-mono);">
+                    <span>MIN: R 500.00</span>
+                    <span id="display-cap-label">MAX: R 4,500.00</span>
+                </div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-row">
+                    <span>Requested Principal:</span>
+                    <span id="calc-principal">R 2,000.00</span>
+                </div>
+                <div class="data-row">
+                    <span>Flat Admin Fee (5.00%):</span>
+                    <span id="calc-fee">R 100.00</span>
+                </div>
+                <div class="data-row total">
+                    <span>Total Payroll Deduction:</span>
+                    <strong id="calc-total">R 2,100.00</strong>
+                </div>
+                <div class="data-row" style="margin-top: 8px;">
+                    <span>Remaining Payday Salary:</span>
+                    <span id="calc-net-remaining">R 12,900.00</span>
+                </div>
+            </div>
+
+            <button class="btn" id="btn-to-screen-3">PROCEED TO DIGITAL SIGNATURE &rarr;</button>
+        </section>
+
+        <!-- SCREEN 3 OF 6: DIGITAL AOD SIGNATURE CANVAS -->
+        <section id="screen-3" class="screen">
+            <div class="screen-header">SCREEN 3 OF 6: DIGITAL AOD SIGNATURE</div>
+
+            <div class="alert-box">
+                <strong>ACKNOWLEDGEMENT OF DEDUCTION (AOD)</strong><br>
+                I hereby acknowledge debt of <span id="aod-amount">R 2,100.00</span> to Cartrack (Pty) Ltd. I authorize a single payroll deduction from my basic salary on scheduled payday.
+            </div>
+
+            <label>Draw Signature Below:</label>
+            <div class="canvas-container">
+                <canvas id="signature-pad"></canvas>
+            </div>
+            <button class="btn btn-secondary" id="btn-clear-sig">CLEAR SIGNATURE</button>
+
+            <button class="btn" id="btn-to-screen-4">GENERATE PASSCODE &amp; PROCEED TO 2FA &rarr;</button>
+        </section>
+
+        <!-- SCREEN 4 OF 6: 2FA SECURITY AUTHORIZATION -->
+        <section id="screen-4" class="screen">
+            <div class="screen-header">SCREEN 4 OF 6: 2FA SECURITY AUTHORIZATION</div>
+
+            <div class="alert-box">
+                An encrypted 6-digit authorization passcode was sent to +27820004921.<br>
+                <em>(Development Test OTP: 841903)</em>
+            </div>
+
+            <div class="form-group">
+                <label for="otp-input">Enter 6-Digit Passcode</label>
+                <input type="text" id="otp-input" maxlength="6" placeholder="000000">
+            </div>
+
+            <div id="otp-error" class="alert-box" style="display: none; border-color: var(--brand-orange); color: var(--brand-orange);"></div>
+
+            <button class="btn" id="btn-verify-disburse">VERIFY &amp; DISBURSE FUNDS TO WALLET &rarr;</button>
+        </section>
+
+        <!-- SCREEN 5 OF 6: EMPLOYEE WALLET & INSTANT EFT -->
+        <section id="screen-5" class="screen">
+            <div class="screen-header">SCREEN 5 OF 6: EMPLOYEE WALLET &amp; INSTANT EFT</div>
+
+            <div class="data-card" style="text-align: center;">
+                <div style="font-size: 0.8rem; font-family: var(--font-mono);">APPROVED WALLET BALANCE</div>
+                <div class="highlight-amount" id="wallet-balance">R 2,000.00</div>
+                <span class="badge" style="border-color: var(--brand-orange); color: var(--brand-orange);">FUNDS READY FOR DISBURSEMENT</span>
+            </div>
+
+            <div class="data-card">
+                <div class="data-row">
+                    <span>Target Bank:</span>
+                    <span>FNB Gold Cheque</span>
+                </div>
+                <div class="data-row">
+                    <span>Account Number:</span>
+                    <span>********3812</span>
+                </div>
+                <div class="data-row">
+                    <span>Transfer Speed:</span>
+                    <span>Real-Time (&lt; 120s)</span>
+                </div>
+            </div>
+
+            <button class="btn" id="btn-withdraw-now">WITHDRAW TO BANK ACCOUNT NOW &rarr;</button>
+        </section>
+
+        <!-- SCREEN 6 OF 6: ADVANCE MONITOR & RESET LOCK -->
+        <section id="screen-6" class="screen">
+            <div class="screen-header">SCREEN 6 OF 6: ADVANCE MONITOR &amp; LOCK</div>
+
+            <div class="alert-box">
+                <strong>STATUS: QUEUED FOR PAYROLL DEDUCTION</strong><br>
+                Ref: <span id="final-ref-id">VOLT-2026-8891</span>
+            </div>
+
+            <div class="data-card">
+                <div class="data-row">
+                    <span>Scheduled Deduction:</span>
+                    <strong>25 September 2026</strong>
+                </div>
+                <div class="data-row">
+                    <span>Total Deduction:</span>
+                    <strong id="final-deduction-amount">R 2,100.00</strong>
+                </div>
+                <div class="data-row">
+                    <span>Contract SHA-256:</span>
+                    <span style="font-size: 0.65rem; font-family: var(--font-mono); word-break: break-all;" id="final-hash">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+                </div>
+            </div>
+
+            <div class="data-card" style="border-style: dashed;">
+                <div style="font-weight: bold; font-size: 0.85rem; margin-bottom: 4px;">Single Active Loan Policy Engaged</div>
+                <div style="font-size: 0.75rem; color: var(--gray-light);">
+                    New applications are automatically locked. Sub-24h Reset will trigger following payday payroll clearance.
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
